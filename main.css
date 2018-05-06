@@ -1,0 +1,168 @@
+body {
+	margin: 0;
+	font-family: arial;
+	overflow: hidden;
+}
+
+.background-21 {
+	height: 100%;
+	width: 100%;
+	background-image: url(background/issa.png);
+	position: absolute;
+	top: 0;
+	z-index: -1;
+}
+
+.content {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+
+}
+
+.content__cta {
+	color: #fff;
+	font-weight: 800;
+	border-radius: 50px;
+	border: 3px solid #Fff;
+	padding: 10px 15px;
+	text-transform: uppercase;
+}
+
+.content__title {
+	color: #fff;
+}
+
+.content__split {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.content__ul {
+	align-self: center;
+	padding: 0;
+	display: flex;
+	list-style-type: none;
+}
+
+.content__a {
+	font-size: 13px;
+	margin: 0 10px;
+	text-decoration: none;
+}
+
+.content__legal {
+	color: #fff;
+}
+
+.content__share {
+	color: #cac4c4;
+	text-transform: uppercase;
+}
+
+.glow-21 {
+	height: 100%;
+	width: 100%;
+	background-image: url(background/glow.jpg);
+	position: absolute;
+	top: 0;
+	z-index: -2;
+}
+
+.noise-21 {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	mix-blend-mode: hard-light;
+	top: 0;
+	background-image: url(background/noise.jpg);
+	z-index: -1;
+}
+
+.move {
+    transform: translateZ(20px);
+    transition: -webkit-transform 1500ms cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
+}
+
+.move__desc {
+	text-align: center;
+	font-size: 22px;
+	color: #f5ad46;
+	margin: 0;
+	font-weight: 900;
+}
+
+.move__title {
+	font-family: 'Anton', sans-serif;
+	font-size: 220px;
+	line-height: 262px;
+	transition: -webkit-transform 1500ms cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
+	letter-spacing: 1px;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.move__p {
+	color: #f5ad46;
+	margin: 0;
+	transform: rotate(-1deg) translate3d(0, 0, 80px);
+	font-size: 66px;
+	position: absolute;
+	top: -30px;
+	left: calc(50% - 51px);
+	text-transform: uppercase;
+	font-family: 'Bungee Shade', cursive;
+}
+
+.track {
+	display: flex;
+	height: 50px
+}
+
+.track__img {
+	margin: 0 20px;
+	width: 50px;
+}
+
+.track__p {
+	color: #fff;
+	font-size: 13px;
+	margin: 2px 0;
+}
+
+.track__play {
+	color: #fff;
+	font-weight: 900;
+}
+
+.track__title {
+	font-weight: 800;
+	text-transform: uppercase;
+}
+
+.track__information {
+	display: flex;
+}
+
+.text-wrapper {
+transform-style: preserve-3d;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+@media screen and (min-width: 961px) {
+	.content__split {
+		flex-direction: row;
+		margin: 30px;
+	}
+
+	.content__ul {
+		align-self: flex-end;
+	}
+}
