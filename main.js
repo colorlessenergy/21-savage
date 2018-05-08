@@ -1,43 +1,11 @@
 (function () {
-	var text = document.querySelector("h2");
-
-	var textSplit = text.textContent.split("");
-
-	text.textContent = '';
-	// create a span for every character and append
-	// to the h2
-	textSplit.forEach(function (current) {
-			var span = document.createElement("span");
-
-			span.innerHTML = current;
-
-			text.appendChild(span);
-	});
-
-	window.setInterval(function () {
-			spanChangeColor(text.querySelectorAll("span"))
-	}, 1000);
-
-	function randColor() {
-		var r = Math.floor(Math.random() * 256);
-		var g = Math.floor(Math.random() * 256);
-		var b = Math.floor(Math.random() * 256);
-		return "rgb(" + r + ", " + g + ", " + b + ")";
-	}
-
-	function spanChangeColor(ele) {
-		ele.forEach(function (current) {
-				current.style.color = randColor();
-		})
-	}
-
   // audio
+
   /*
     store all songs information
     load every song and place into an audio array
     play the song on load / when a song is finished play the next one in the list
   */
-
 
   var playAndPauseButton = document.querySelector(".track__play");
   
@@ -55,6 +23,7 @@
       "audio": "music/noheart.mp3"
     }
   ];
+  
   var allAudio = [];
   var activeTrack = 0;
 
@@ -82,8 +51,12 @@
 
     allAudio.push(newAudio);
 
-    allAudio[activeTrack].play();
-    console.log(allAudio[activeTrack].paused)
+    window.setTimeout(function () {
+      allAudio[activeTrack].play();
+      document.querySelector(".text-wrapper").classList.remove("fade");
+      document.querySelector(".content").classList.remove("fade");
+      document.querySelector(".move__p").classList.add("move__p--animate")
+    }, 2000);
 
   });
 

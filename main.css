@@ -1,7 +1,8 @@
 body {
+  box-sizing: border-box;
 	margin: 0;
 	font-family: arial;
-  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* background images */
@@ -17,7 +18,8 @@ body {
 }
 
 .background--21 {
-	background-image: url(background/issa.png);
+  background-image: url(background/issa.png);
+  animation: backgroundzoom 2s forwards ease-in;
 }
 
 .background--noise {
@@ -28,6 +30,25 @@ body {
 .background--glow {
 	background-image: url(background/glow.jpg);
 	z-index: -2;
+}
+
+.background--intro {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+  text-transform: capitalize;
+  transition: opacity 1s ease;
+}
+
+.intro {
+  animation: fadeinout 2s linear forwards;
+  opacity: 0;
+}
+
+.fade {
+  opacity: 0;
 }
 
 /* the content in the corners */
@@ -42,6 +63,7 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
+  transition: opacity 0.5s ease;
 }
 
 .content__cta {
@@ -131,11 +153,11 @@ body {
 }
 
 .move__title {
+  color: #ec0a0a;
 	font-family: 'Anton', sans-serif;
   font-size: 110px;
 	letter-spacing: 1px;
   margin: 0;
-	transition: -webkit-transform 1500ms cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
   transform: translateZ(20px);
   text-transform: uppercase;
   text-align: center
@@ -144,10 +166,15 @@ body {
 .move__p {
 	color: #f5ad46;
 	margin: 0;
-	transform: rotate(-1deg) translateZ(20px) translate3d(0, 0, 100px);
 	font-size: 66px;
   font-family: 'Bungee Shade', cursive;
   line-height: 0;
+  transform: translate3d(0, 50vh, 0);
+  transition: transform 1s ease;
+}
+
+.move__p--animate {
+  transform: rotate(-1deg) translateZ(20px) translate3d(0, 0, 100px);
 }
 
 /* styles for the tracks */
@@ -206,7 +233,27 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	overflow: hidden;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+}
+
+
+@keyframes backgroundzoom {
+  0% {
+    opacity: 0.8;
+    transform: scale(1.3);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeinout {
+  50% {
+    opacity: 1;
+  }
 }
 
 @media screen and (min-width: 961px) {
