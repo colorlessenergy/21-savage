@@ -1,23 +1,47 @@
 body {
 	margin: 0;
 	font-family: arial;
-	overflow: hidden;
+  box-sizing: border-box;
 }
 
-.background-21 {
+/* background images */
+
+.background {
+  background-position: center;
+  background-repeat: no-repeat;
+  top: 0;
 	height: 100%;
-	width: 100%;
-	background-image: url(background/issa.png);
-	position: absolute;
-	top: 0;
-	z-index: -1;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
 }
+
+.background--21 {
+	background-image: url(background/issa.png);
+}
+
+.background--noise {
+	mix-blend-mode: hard-light;
+	background-image: url(background/noise.jpg);
+}
+
+.background--glow {
+	background-image: url(background/glow.jpg);
+	z-index: -2;
+}
+
+/* the content in the corners */
 
 .content {
 	display: flex;
 	justify-content: space-between;
-	flex-direction: column;
-
+  flex-direction: column;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .content__cta {
@@ -26,7 +50,13 @@ body {
 	border-radius: 50px;
 	border: 3px solid #Fff;
 	padding: 10px 15px;
-	text-transform: uppercase;
+  text-transform: uppercase;
+  transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+.content__cta:hover {
+  background-color: #fff;
+  color: #f5ad46;
 }
 
 .content__title {
@@ -59,31 +89,36 @@ body {
 
 .content__share {
 	color: #cac4c4;
-	text-transform: uppercase;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.5s ease;
 }
 
-.glow-21 {
-	height: 100%;
-	width: 100%;
-	background-image: url(background/glow.jpg);
-	position: absolute;
-	top: 0;
-	z-index: -2;
+.content__share:hover {
+  color: #fff;
 }
 
-.noise-21 {
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	mix-blend-mode: hard-light;
-	top: 0;
-	background-image: url(background/noise.jpg);
-	z-index: -1;
+.content__share:before {
+  content: '';
+  background-color: #fff;
+  position: absolute;
+  bottom: -5px;
+  width: 0%;
+  height: 1px;
+  left: 0;
+  transition: width 0.3s ease;
 }
+
+.content__share:hover:before {
+  width: 100%;
+}
+
+/* the main center content */
 
 .move {
-    transform: translateZ(20px);
-    transition: -webkit-transform 1500ms cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
+  will-change: transform;
+  transform-style: preserve-3d;
+  text-align: center;
 }
 
 .move__desc {
@@ -91,30 +126,31 @@ body {
 	font-size: 22px;
 	color: #f5ad46;
 	margin: 0;
-	font-weight: 900;
+  font-weight: 900;
+  transform: translateZ(20px);
 }
 
 .move__title {
 	font-family: 'Anton', sans-serif;
-	font-size: 220px;
-	line-height: 262px;
-	transition: -webkit-transform 1500ms cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
+  font-size: 110px;
 	letter-spacing: 1px;
-	margin: 0;
-	text-transform: uppercase;
+  margin: 0;
+	transition: -webkit-transform 1500ms cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
+  transform: translateZ(20px);
+  text-transform: uppercase;
+  text-align: center
 }
 
 .move__p {
 	color: #f5ad46;
 	margin: 0;
-	transform: rotate(-1deg) translate3d(0, 0, 80px);
+	transform: rotate(-1deg) translateZ(20px) translate3d(0, 0, 100px);
 	font-size: 66px;
-	position: absolute;
-	top: -30px;
-	left: calc(50% - 51px);
-	text-transform: uppercase;
-	font-family: 'Bungee Shade', cursive;
+  font-family: 'Bungee Shade', cursive;
+  line-height: 0;
 }
+
+/* styles for the tracks */
 
 .track {
 	display: flex;
@@ -133,8 +169,24 @@ body {
 }
 
 .track__play {
-	color: #fff;
-	font-weight: 900;
+  border: 3px solid #fff;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 900;
+  height: 30px;
+  margin: 0;
+  width: 30px;
+
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: color 0.5s ease, border-color 0.5s ease;
+}
+
+.track__play:hover {
+  color: #a7a6a6;
+  border-color: #a7a6a6;
 }
 
 .track__title {
@@ -146,8 +198,9 @@ body {
 	display: flex;
 }
 
+
 .text-wrapper {
-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -160,9 +213,10 @@ transform-style: preserve-3d;
 	.content__split {
 		flex-direction: row;
 		margin: 30px;
-	}
+  }
 
-	.content__ul {
-		align-self: flex-end;
-	}
+  .move__title {
+    font-size: 220px;
+    line-height: 262px;
+  }
 }
