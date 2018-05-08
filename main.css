@@ -10,6 +10,7 @@ body {
 .background {
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
   top: 0;
 	height: 100%;
   position: absolute;
